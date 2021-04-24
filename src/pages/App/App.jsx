@@ -4,6 +4,7 @@ import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService'
+import FlagPage from '../FlagPage/FlagPage'
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
              <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
+          </Route>
+          <Route exact path="/flagpage">
+             <FlagPage />
           </Route>
           {userService.getUser() ? 
             <> 
