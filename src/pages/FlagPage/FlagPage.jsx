@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 
-export default function FlagPage(props){
-    
-
+export default function FlagPage(props) {
     return (
-      
-          
-             <h1>FLAG PAGE</h1>
-    
-      
-      );
+        <div>
+            <h1>FLAG PAGE</h1>
+            <img src="/Assets/Asexual.jpeg" alt=""/>
+        </div>
+    );
 }
