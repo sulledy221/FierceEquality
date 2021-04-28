@@ -31,7 +31,6 @@ export default function SignUpPage(props){
   async function handleSubmit(e){
     e.preventDefault();
 
-
     const formData = new FormData();
     formData.append('photo', selectedFile);
 
@@ -40,9 +39,12 @@ export default function SignUpPage(props){
       formData.append(key, state[key])
     }
 
-
     try {
-      await userService.signup(formData);
+      const success = await userService.signup(formData);
+      
+      if (success) {
+        //   Router.push('/profile')
+      }
 
     } catch(err){
       console.log(err.message)
@@ -107,7 +109,7 @@ export default function SignUpPage(props){
                     <Form.Input     
                       name="pronoun"
                       type="text"
-                      placeholder="What are your preffered pronouns?"
+                      placeholder="What are your preferred pronouns?"
                       value={ state.pronoun}
                       onChange={handleChange}
                       required
