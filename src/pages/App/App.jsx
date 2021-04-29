@@ -6,6 +6,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService'
 import FlagPage from '../FlagPage/FlagPage'
 import ProfilePage from '../ProfilePage/ProfilePage';
+import HomePage from '../HomePage/HomePage';
+import NavBar from '../../components/NavBar/NavBar'
 
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
       <Switch>
           <Route exact path="/login">
              <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
@@ -42,7 +45,7 @@ function App() {
             <> 
              <Switch>
                 <Route exact path="/">
-                    Home PAGE COMPONENT WOULD GO HEREE
+                    <HomePage />
                 </Route>
             </Switch>
             </>
