@@ -15,8 +15,8 @@ export default function SignUpPage(props){
     password: '',
     passwordConf: '',
     identity: '',
-    pronoun: '',
-    bio: ''
+    pronouns: '',
+    bio: '',
   });
 
   const history = useHistory()
@@ -29,22 +29,37 @@ export default function SignUpPage(props){
   }
 
   async function handleSubmit(e){
+    // add this later
     e.preventDefault();
+
+    // Photos have to be sent over as FormData
+    // They send over the form in multiparts (multipe requests to the server)
 
     const formData = new FormData();
     formData.append('photo', selectedFile);
 
 
+    // generating rest of form data by looping over the state object!
     for (let key in state){
       formData.append(key, state[key])
     }
+    //fyi if you log out formData you won't see anything you have to use the folllowing
 
+    // Display the key/value pairs
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0]+ ', ' + pair[1]); 
+    // }
+
+    // SO now we have are data prepared to send over in our formData object
     try {
-      const success = await userService.signup(formData);
-      
-      if (success) {
-        //   Router.push('/profile')
-      }
+      // refere to the utils/userService, to look at the signup fetch function
+      await userService.signup(formData);
+      // setTheUser in our app
+      props.handleSignUpOrLogin() // gets the token from localstorage and updates the user state in our app.js
+      // with the correct user object from the current token
+      // then route to the homepage
+      history.push('/') // defined above from react-router-dom
+      // after this we can go whereever
 
     } catch(err){
       console.log(err.message)
@@ -57,7 +72,6 @@ export default function SignUpPage(props){
     setSelectedFile(e.target.files[0])
   }
  
-    
     return (
         <>
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -107,10 +121,10 @@ export default function SignUpPage(props){
                       required
                     />
                     <Form.Input     
-                      name="pronoun"
+                      name="pronouns"
                       type="text"
                       placeholder="What are your preferred pronouns?"
-                      value={ state.pronoun}
+                      value={ state.pronouns}
                       onChange={handleChange}
                       required
                     />

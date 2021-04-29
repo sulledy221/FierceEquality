@@ -5,6 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService'
 import FlagPage from '../FlagPage/FlagPage'
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/flagpage">
              <FlagPage />
+          </Route>
+          <Route path="/:username">
+            <ProfilePage />
           </Route>
           {userService.getUser() ? 
             <> 

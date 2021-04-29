@@ -14,6 +14,21 @@ module.exports = {
 function signup(req, res) {
   console.log(req.body, req.file)
 
+async function profile(req, res){
+  try {
+      // First find the user using the params from the request
+      // findOne finds first match, its useful to have unique usernames!
+    const user = await User.findOne({username: req.params.username})
+      // Then find all the posts that belong to that user
+    const posts = await Post.find({user: user._id});
+    console.log(posts, ' this posts')
+    res.status(200).json({posts: posts, user: user})
+  } catch(err){
+    console.log(err)
+    res.send({err})
+  }
+}
+
   //////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////
