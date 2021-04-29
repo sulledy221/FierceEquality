@@ -1,0 +1,10 @@
+.container {
+    border: black 3px;
+    padding: 15px;
+    width: 900px;
+    border: black 3px;
+}
+
+.img {
+    width: 300px;
+}

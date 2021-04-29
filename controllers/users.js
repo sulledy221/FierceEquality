@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Posts = require('../models/posts');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 const { v4: uuidv4 } = require('uuid');
@@ -18,7 +19,7 @@ async function profile(req, res) {
     // findOne finds first match, its useful to have unique usernames!
     const user = await User.findOne({ username: req.params.username })
     // Then find all the posts that belong to that user
-    const posts = await Post.find({ user: user._id });
+    const posts = await Posts.find({ user: user._id });
     console.log(posts, ' this posts')
     res.status(200).json({ posts: posts, user: user })
   } catch (err) {

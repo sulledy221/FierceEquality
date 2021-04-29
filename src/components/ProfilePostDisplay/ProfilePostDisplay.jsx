@@ -1,13 +1,16 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react'
-// import Post from '../PostCard/PostCard';
+import PostCard from '../PostCard/PostCard';
 
 
 export default function ProfilePostDisplay(props){
 
     return (
       
-       <div>Profile Post Display Container</div>
-    
+       <div>Profile Post Display Container
+        <PostCard>
+
+        </PostCard>
+        </div>
     )
 }

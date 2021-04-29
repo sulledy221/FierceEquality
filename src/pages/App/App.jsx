@@ -1,16 +1,20 @@
 import React, {useState} from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import userService from '../../utils/userService'
-import FlagPage from '../FlagPage/FlagPage'
+import userService from '../../utils/userService';
+import FlagPage from '../FlagPage/FlagPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import HomePage from '../HomePage/HomePage';
-import NavBar from '../../components/NavBar/NavBar'
+import NavBar from '../../components/NavBar/NavBar';
+import About from '../About/About';
+import Emergency from '../Emergency/Emergency';
+import PostCard from '../../components/PostCard/PostCard'
+import SafeZone from '../SafeZone/SafeZone'
+// import Listing from '../Listing/Listing';
 
-
-function App() {
+function App(props) {
 
   const [user, setUser] = useState(userService.getUser()) // getUser decodes our JWT token, into a javascript object
   // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like 
@@ -25,9 +29,16 @@ function App() {
     setUser({user: null})
   }
 
+  function push (){
+    console.log('props', props)
+  }
+
   return (
     <div className="App">
-      <NavBar />
+      {/* <div className="App">
+      <Listing />
+      </div> */}
+      <NavBar push={push}/>
       <Switch>
           <Route exact path="/login">
              <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
@@ -37,6 +48,18 @@ function App() {
           </Route>
           <Route exact path="/flagpage">
              <FlagPage />
+          </Route>
+          <Route path="/emergency">
+            <Emergency />
+          </Route>
+          <Route path="/safezone">
+            <SafeZone />
+          </Route>
+          <Route path="/posts">
+            <PostCard />
+          </Route>
+          <Route path="/about">
+            <About />
           </Route>
           <Route path="/:username">
             <ProfilePage />
@@ -58,4 +81,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);

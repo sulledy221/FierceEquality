@@ -5,6 +5,7 @@ import ProfilePostDisplay from '../../components/ProfilePostDisplay/ProfilePostD
 import PageHeader from '../../components/Header/Header';
 import userService from '../../utils/userService';
 import { useLocation } from 'react-router-dom';
+// import Posts from './controllers/users.js'
 
 
 export default function ProfilePage(){

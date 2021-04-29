@@ -69,7 +69,7 @@ const SubAccordions = (
 )
 
 const AccordionPanels = [
-  { title: '♡♡♡' , content: { content: SubAccordions, key: 'sub-accordions' } },
+  { title: <a class="launch icon item"><i class="content icon"></i></a> , content: { content: SubAccordions, key: 'sub-accordions' } },
 ]
 
 const FlagMenu = () => (
