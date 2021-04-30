@@ -267,5 +267,5 @@ export default function FlagLinks ({flag}) {
     if (allLinks[`${flag}Links`]){
         return allLinks[`${flag}Links`].map(link => (<div><a href={link.url}><p>{link.title}</p></a></div>))
     }
-    return <p>hoob</p>
+    return <p></p>
 }
