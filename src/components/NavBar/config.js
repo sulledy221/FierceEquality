@@ -2,12 +2,11 @@ import { Link } from 'react-router-dom'
 import FlagImage from '../FlagImage/FlagImage'
 
 const flagNames = [
-    'Rainbow',
+    'Gay',
     'QPOC',
     'Progress',
     'Polysexual',
-    'Phillypride',
-    'Pan',
+    'Pansexual',
     'Asexual',
     'Bisexual',
     'Demisexual',
@@ -15,7 +14,6 @@ const flagNames = [
     'Intersex',
     'Lesbian',
     'Nonbinary',
-    'OGpride',
     'Transgender',
     'StraightAlly'
 ]
