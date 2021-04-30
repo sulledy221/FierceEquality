@@ -7,11 +7,7 @@ const S3 = require('aws-sdk/clients/s3');
 const s3 = new S3(); // initialize the construcotr
 // now s3 can crud on our s3 buckets
 
-module.exports = {
-  signup,
-  login,
-  profile
-};
+
 
 async function profile(req, res) {
   try {
@@ -28,8 +24,8 @@ async function profile(req, res) {
   }
 }
 
-function signup(req, res) {
-  console.log(req.body, req.file)
+async function signup(req, res) {
+  console.log(req.body)
 
 
   //////////////////////////////////////////////////////////////////////////////////
@@ -37,28 +33,17 @@ function signup(req, res) {
   //////////////////////////////////////////////////////////////////////////////////
 
   // FilePath unique name to be saved to our butckt
-  const filePath = `${uuidv4()}/${req.file.originalname}`
-  console.log('req.file', filePath)
-  const params = { Bucket: process.env.BUCKET_NAME, Key: filePath, Body: req.file.buffer };
-  //your bucket name goes where collectorcat is 
-  //////////////////////////////////////////////////////////////////////////////////
-  s3.upload(params, async function (err, data) {
-    console.log(data, 'from aws', 'and err ->', err) // data.Location is our photoUrl that exists on aws
-    const user = new User({ ...req.body, photoUrl: data.Location });
-    try {
-      await user.save();
-      const token = createJWT(user); // user is the payload so this is the object in our jwt
-      res.json({ token });
-    } catch (err) {
-      // Probably a duplicate email
-      res.status(400).json(err);
-    }
-
-
-
-  })
-  //////////////////////////////////////////////////////////////////////////////////
-
+  // const body = JSON.parse(req.body)
+  const user = new User(req.body);
+  try {
+    await user.save();
+    const token = createJWT(user); // user is the payload so this is the object in our jwt
+    res.json({ token });
+  } catch (err) {
+    console.log("sign up error", err)
+    // Probably a duplicate email
+    res.status(400).json(err);
+  }
 }
 
 async function login(req, res) {
@@ -91,3 +76,10 @@ function createJWT(user) {
     { expiresIn: '24h' }
   );
 }
+
+
+module.exports = {
+  signup,
+  login,
+  profile
+};

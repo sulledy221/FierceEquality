@@ -10,13 +10,13 @@ export default function SignUpPage(props){
   const [error, setError ] = useState('')
   const [selectedFile, setSelectedFile] = useState('')
   const [state, setState]  = useState({
-    username: '',
-    email: '',
-    password: '',
-    passwordConf: '',
-    identity: '',
-    pronouns: '',
-    bio: '',
+    username: 'sully',
+    email: 'sully@gmail.com',
+    password: 'sully',
+    passwordConf: 'sully',
+    identity: 'trans',
+    pronouns: 'he him',
+    bio: 'dgninvisodimvpmd',
   });
 
   const history = useHistory()
@@ -29,38 +29,21 @@ export default function SignUpPage(props){
   }
 
   async function handleSubmit(e){
-    // add this later
     e.preventDefault();
 
-    // Photos have to be sent over as FormData
-    // They send over the form in multiparts (multipe requests to the server)
 
     const formData = new FormData();
     formData.append('photo', selectedFile);
 
 
-    // generating rest of form data by looping over the state object!
     for (let key in state){
       formData.append(key, state[key])
     }
-    //fyi if you log out formData you won't see anything you have to use the folllowing
-
-    // Display the key/value pairs
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0]+ ', ' + pair[1]); 
-    // }
-
-    // SO now we have are data prepared to send over in our formData object
     try {
-      // refere to the utils/userService, to look at the signup fetch function
-      await userService.signup(formData);
-      // setTheUser in our app
-      props.handleSignUpOrLogin() // gets the token from localstorage and updates the user state in our app.js
-      // with the correct user object from the current token
-      // then route to the homepage
-      history.push('/') // defined above from react-router-dom
-      // after this we can go whereever
-
+      const success = await userService.signup(state);
+      if (success){
+        history.push("/")
+      }
     } catch(err){
       console.log(err.message)
       setError(err.message)
@@ -128,15 +111,7 @@ export default function SignUpPage(props){
                       onChange={handleChange}
                       required
                     />
-                    <Form.TextArea label='Bio' placeholder='Tell us more about yourself and what brought you here!' name="bio" onChange={handleChange} maxLen={"10"}/>
-                    <Form.Field> 
-                        <Form.Input
-                          type="file"
-                          name="photo"
-                          placeholder="upload image"
-                          onChange={handleFileInput}
-                        />      
-                    </Form.Field>
+                    <Form.TextArea label='Bio' placeholder='Tell us more about yourself and what brought you here!' name="bio" value={state.bio} onChange={handleChange} maxLen={"10"}/>
                     <Button
                       type="submit"
                       className="btn"

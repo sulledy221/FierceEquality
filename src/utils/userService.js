@@ -5,18 +5,23 @@ const BASE_URL = '/api/users/';
 
 // NOTE THIS IS configured to send of a multi/part form request
 // aka photo 
-function signup(user) {
-  return fetch(BASE_URL + 'signup', {
+async function signup(user) {
+
+  const result = await fetch(BASE_URL + 'signup', {
     method: 'POST',
-    body: user
+    headers: {
+      'Content-Type': 'application/json'},
+    body: JSON.stringify(user)
   })
-  .then(res => {
-    if (res.ok) return res.json();
-    // Probably a duplicate email
+  if (result.ok) return true;
+  
+  // .then(res => {
+  //   if (res.ok) return true;
+  //   // Probably a duplicate email
     throw new Error('Email already taken!');
-  })
-  // Parameter destructuring!
-  .then(({token}) => tokenService.setToken(token));
+  // })
+  // // Parameter destructuring!
+  // .then(({token}) => tokenService.setToken(token));
   // Setting our token in localStorage in our browser
   // then we'll be able to use with every request!
   // The above could have been written as

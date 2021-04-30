@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AddPost from '../../components/AddPostForm/AddPostForm';
-import * as postsAPI from '../../utils/post-api';
+import PageHeader from '../Header/Header';
+import PostFeed from '../PostFeed/PostFeed';
+import * as postsAPI from '../../utils/posts-api.js';
 
 export default function Feed(){
   const [posts, setPosts] = useState([])
@@ -15,9 +17,9 @@ export default function Feed(){
   
     return (
         <>
-         <PageHeader />
+        <PageHeader user={{}}/>
         <AddPost handleAddPost={handleAddPost}/>
-        <PostFeed/>
+        <PostFeed posts={[]}/>
         </>
     )
 }
