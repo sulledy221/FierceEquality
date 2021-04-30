@@ -10,7 +10,6 @@ import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
 import About from '../About/About';
 import Emergency from '../Emergency/Emergency';
-import PostCard from '../../components/PostCard/PostCard'
 import SafeZone from '../SafeZone/SafeZone'
 // import Listing from '../Listing/Listing';
 
@@ -47,16 +46,13 @@ function App(props) {
              <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
           </Route>
           <Route exact path="/flagpage">
-             <FlagPage />
+             <FlagPage flag={{name:"QPOC"}}/>
           </Route>
           <Route path="/emergency">
             <Emergency />
           </Route>
           <Route path="/safezone">
             <SafeZone />
-          </Route>
-          <Route path="/posts">
-            <PostCard />
           </Route>
           <Route path="/about">
             <About />

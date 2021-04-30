@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Input, Menu } from 'semantic-ui-react'
+import { Input, Menu, Dropdown } from 'semantic-ui-react'
 import FlagMenu from '../FlagMenu/FlagMenu'
+import {flags} from '../FlagMenu/config'
+
 
 
 export default class NavBar extends Component {
@@ -17,15 +19,15 @@ export default class NavBar extends Component {
       
       return (
         <nav>
-        <ul>
-          <ol><Link to="/">Welcome to Fierce Equality</Link></ol>
-          <ol><Link to="/about">About</Link></ol>
-          <ol><Link to="/safezone">Safe Zone</Link></ol>
-          <ol><Link to="/emergency">Emergency</Link></ol>
-          <ol><Link to="/signup">Sign Up!</Link></ol>
-          <ol><Link to="/login">Login!</Link></ol>
-          <ol><Link to="/">Login!</Link></ol>
-
+        <ul className="ul">
+        <li><Dropdown placeholder='Identity' search selection options={flags} /></li>
+          <li><Link to="/">Welcome to Fierce Equality</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/safezone">Safe Zone</Link></li>
+          <li><Link to="/emergency">Emergency</Link></li>
+          <li><Link to="/signup">Sign Up!</Link></li>
+          <li><Link to="/login">Login!</Link></li>
+          <li><Link to="/flagpage">flagpage</Link></li>
         </ul>
       </nav>
     )

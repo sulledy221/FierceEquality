@@ -1,8 +1,8 @@
-.container {
+.about  {
     border: black 3px;
     padding: 15px;
     width: 900px;
-    border: black 3px;
+    border: black 3px solid;
 }
 
 .img {

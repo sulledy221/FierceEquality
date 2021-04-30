@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import PageHeader from '../../components/Header/Header';
 import AddPostForm from '../../components/AddPostForm/AddPostForm'
 import Posts from '../../components/Posts/Posts'
 import * as postsApi from '../../utils/post-api'
@@ -7,7 +6,7 @@ import * as likesApi from '../../utils/likesService';
 
 import {  Grid } from 'semantic-ui-react'
 
-export default function Feed({user, handleLogout}){
+export default function Feed({user}){
 
     const [posts, setPosts] = useState([]);
 
@@ -67,11 +66,6 @@ export default function Feed({user, handleLogout}){
 
     return (
       <Grid centered >
-        <Grid.Row>
-          <Grid.Column>
-            <PageHeader user={user} handleLogout={handleLogout}/>
-          </Grid.Column>
-        </Grid.Row>
         <Grid.Row>
           <Grid.Column style={{ maxWidth: 450 }}>
             <AddPostForm handleAddPost={handleAddPost}/>

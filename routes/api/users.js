@@ -6,6 +6,7 @@ const upload = multer();
 /*---------- Public Routes ----------*/
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
+router.post('/flagpage' )
 router.get('/:username', usersCtrl.profile);
 
 
