@@ -45,7 +45,7 @@ function App(props) {
           <Route exact path="/signup">
              <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
           </Route>
-          <Route exact path="/flagpage">
+          <Route exact path="/flagpage/:flag">
              <FlagPage flag={{name:"QPOC"}}/>
           </Route>
           <Route path="/emergency">
