@@ -8,9 +8,12 @@ const likesSchema = mongoose.Schema({
 const postSchema = new mongoose.Schema({
     ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     ownerName: String,
-    caption: String,
+    comments: String,
     likes: [likesSchema]
-  })
+
+  }, {
+    timestamps: true
+  });
  
 module.postSchema = postSchema
 

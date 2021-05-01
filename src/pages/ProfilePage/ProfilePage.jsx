@@ -33,9 +33,7 @@ export default function ProfilePage(){
         } catch(err){
             console.log(err)
             setError(err)
-        }
-        
-        
+        }  
     }
 
     useEffect(() => {

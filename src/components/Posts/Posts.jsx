@@ -6,7 +6,7 @@ import * as likesApi from '../../utils/likesService';
 
 import {  Grid } from 'semantic-ui-react'
 
-export default function Feed({user}){
+export default function Posts({user}){
 
     const [posts, setPosts] = useState([]);
 
@@ -76,7 +76,6 @@ export default function Feed({user}){
             <Posts 
               user={user}
               posts={posts}  
-              numPhotosCol={1} 
               isProfile={false} 
               addLike={addLike} 
               removeLike={removeLike}

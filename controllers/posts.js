@@ -1,6 +1,6 @@
-const Posts = require('../models/posts');
+// const Posts = require('../models/posts');
 
 
-const create = (req, res) => {
+// const create = (req, res) => {
 
-}
+// }

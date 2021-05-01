@@ -30,7 +30,9 @@ const TransgenderLinks = [{
 }, {
     title:"",
     url:"https://www.cdc.gov/lgbthealth/youth-resources.htm"
+
 }]
+
 const AsexualLinks = [{
     title: "Transgender Clothing Resources",
     url:"https://www.atrh.org/gender-affirming-products"
@@ -46,6 +48,7 @@ const AsexualLinks = [{
 }, {
     title:"",
     url:""
+
 }]
 const DemisexualLinks = [{
     title: "Transgender Clothing Resources",
@@ -210,6 +213,35 @@ const StraightAllyLinks = [{
 }, {
     title:"",
     url:""
+}]
+const ProgressLinks = [ {
+    title:"",
+    url:""
+}, {
+    title:"",
+    url:""
+}, {
+    title:"",
+    url:""
+}, {
+    title:"",
+    url:""
+}, {
+    title:"",
+    url:""
+}]
+const BisexualLinks = [{
+    title:"",
+    url:""
+}, {
+    title:"",
+    url:""
+}, {
+    title:"",
+    url:""
+}, {
+    title:"",
+    url:""
 }, {
     title:"",
     url:""
@@ -260,7 +292,7 @@ const GayLinks = [{
 
 
 
-const allLinks = {TransgenderLinks}
+const allLinks = {TransgenderLinks, AsexualLinks, BisexualLinks, DemisexualLinks, GayLinks, GenderQueerLinks, IntersexLinks, LesbianLinks, NonbinaryLinks, PansexualLinks, PolysexualLinks, QPOCLinks, StraightAllyLinks, ProgressLinks}
 
 export default function FlagLinks ({flag}) {
     console.log("flag   ", flag)

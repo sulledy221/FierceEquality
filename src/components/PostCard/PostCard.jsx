@@ -33,7 +33,8 @@ function PostCard({post, isProfile, addLike, removeLike, user }) {
       <Card.Description>
         {post.caption}
         <Form onSubmit={onSubmit}>
-    <TextArea maxLength="500" placeholder='Tell us more' style={{ minHeight: 100 }} />
+    <TextArea maxLength="500" placeholder='Tell us more!' style={{ minHeight: 100 }} />
+    <Button type='submit'>Post!</Button>
         </Form>
       </Card.Description>
       </Card.Content>

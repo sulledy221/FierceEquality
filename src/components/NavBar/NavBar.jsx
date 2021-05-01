@@ -20,7 +20,7 @@ export default class NavBar extends Component {
       return (
         <nav>
         <ul className="ul">
-        <li><Dropdown placeholder='Identity' search selection options={flagLinks} /></li>
+        <li><Dropdown placeholder='Identity' selection options={flagLinks} /></li>
           <li><Link to="/">Welcome to Fierce Equality</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/safezone">Safe Zone</Link></li>
