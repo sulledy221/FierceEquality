@@ -1,9 +1,13 @@
-import React from 'react';
-import { Card, Icon, Image, Feed, Form, TextArea, Button } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { Card, Icon, Form, TextArea, Button } from 'semantic-ui-react'
+import { useParams } from 'react-router-dom';
+import * as postsApi from '../../utils/posts-api'
+import * as likesApi from '../../utils/likesService';
 
 function PostCard({post, isProfile, addLike, removeLike, user }) { 
-
+  const {flag} = useParams()
+  const [posts, setPosts] = useState([]);
+  const [text, setText] = useState('');
   // as the logged in the user when I add a like I want the heart to turn red
   // find out if the logged in user has liked the card
 
@@ -16,9 +20,40 @@ function PostCard({post, isProfile, addLike, removeLike, user }) {
   const likeColor = likedIndexNumber > -1 ? 'red' : 'grey';
   // as the logged in the user when I click on the heart and it is red I want 
   // to remove the like and turn heart grey
-  const onSubmit = () => {};
-  const Button = () => <Button>Post!</Button>
 
+  async function handleOnSubmit(post){
+    console.log('handle add Post')
+    try {
+        
+        const data = await postsApi.create({
+            ownerId: "608b54365b49575fa180efa1",
+            ownerName: 'Sully',
+            text,
+            flag
+        });
+
+        console.log(data, ' the response from the create route')
+
+        setPosts(posts => [data.post, ...posts])
+
+    } catch(err){
+        console.log(err)
+    }
+}
+
+async function getPosts(){
+
+    try {
+      const data = await postsApi.getAll();
+      setPosts([...data.posts])
+    } catch(err){
+      console.log(err, ' this is the error')
+    }
+  }
+
+  useEffect(() => {
+    getPosts()
+  }, [])
 
   return (
     <Card key={post._id}>
@@ -32,8 +67,8 @@ function PostCard({post, isProfile, addLike, removeLike, user }) {
       <Card.Content>
       <Card.Description>
         {post.caption}
-        <Form onSubmit={onSubmit}>
-    <TextArea maxLength="500" placeholder='Tell us more!' style={{ minHeight: 100 }} />
+        <Form onSubmit={handleOnSubmit}>
+    <TextArea maxLength="500" placeholder='Tell us more!' style={{ minHeight: 100 }} value={text} onChange={e => setText(e.target.value)} />
     <Button type='submit'>Post!</Button>
         </Form>
       </Card.Description>

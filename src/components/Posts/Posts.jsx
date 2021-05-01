@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import AddPostForm from '../../components/AddPostForm/AddPostForm'
-import Posts from '../../components/Posts/Posts'
 import * as postsApi from '../../utils/post-api'
 import * as likesApi from '../../utils/likesService';
 
@@ -73,13 +72,13 @@ export default function Posts({user}){
         </Grid.Row>
         <Grid.Row>
           <Grid.Column style={{maxWidth: 450}}>
-            <Posts 
+            {/* <Posts 
               user={user}
               posts={posts}  
               isProfile={false} 
               addLike={addLike} 
               removeLike={removeLike}
-              />
+              /> */}
           </Grid.Column>
         </Grid.Row>
     </Grid>

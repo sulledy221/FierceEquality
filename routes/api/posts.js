@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const postsCtrl = require('../../controllers/posts/');
+const postsCtrl = require('../../controllers/posts');
 
 /*---------- Public Routes ----------*/
 
-router.post('/flagpage', postsCtrl.create)
-
+router.post('/:flag', postsCtrl.create)
+router.get('/:flag', postsCtrl.index)
 
 
 /*---------- Protected Routes ----------*/
