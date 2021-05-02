@@ -19,7 +19,7 @@ const flagNames = [
 ]
 
 export const flagLinks = flagNames.map (flag => (
-    { value: flag , text: <Link to={`/flagpage/${flag}`}><FlagImage flag={flag}/></Link>, key: flag}
+    { value: flag , text: (<><p>{flag}</p><Link to={`/flagpage/${flag}`}><FlagImage flag={flag}/></Link></>), key: flag}
 ))
 
 

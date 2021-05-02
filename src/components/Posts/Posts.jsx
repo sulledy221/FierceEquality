@@ -59,7 +59,7 @@ export default function Posts({ posts, setPosts, getPosts, user }) {
           </Card.Description>
         </Card.Content>
         <Card.Content extra textAlign={'left'}>
-          <Icon name={'handshake'} size='large' onClick={() => likeHandler(post._id)} color={likeColor} />
+          <Icon name={'handshake'} size='large' onClick={likeHandler} color={likeColor} />
           {post.likes.length} Likes
       </Card.Content>
         <Form onSubmit={() => handleSubmit(post._id)}>

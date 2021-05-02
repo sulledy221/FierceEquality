@@ -1,4 +1,5 @@
 const Post = require('../models/posts');
+const Flag = require('../models/flag')
 
 module.exports = {
     create,
@@ -24,9 +25,11 @@ async function index(req, res) {
 
         // on a query aka .find({}) you just call .exec() to execulate the .populate('user')
         const posts = await Post.find({flag:req.params.flag}).exec()
+        const flagData = await Flag.findOne({name:req.params.flag}).exec()
         // userSchema.set('toObject') gets invoked, to delete the password
         // when we populate the user so we don't have to worry about sending over the password!
-        res.status(200).json({ posts })
+        res.status(200).json({ posts, flagData })
+
     } catch (err) {
         res.json(err)
     }

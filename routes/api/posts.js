@@ -7,9 +7,9 @@ const likesCtrl = require('../../controllers/likes')
 
 router.post('/:flag', postsCtrl.create)
 router.get('/:flag', postsCtrl.index)
+router.delete('/likes/:id', likesCtrl.deleteLike)
 router.delete('/:flag/:id', postsCtrl.delete)
 router.post('/:id/likes', likesCtrl.create)
-router.delete('/likes/:likeId', likesCtrl.deleteLike)
 
 
 /*---------- Protected Routes ----------*/

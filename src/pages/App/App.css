@@ -1,3 +1,9 @@
+body {
+  font-size: 25px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
 .App {
   text-align: center;
 }
@@ -41,7 +47,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow:auto;
+  overflow: visible;
   background-color: #333333;
   display: inline-block;
   width: 1200px;
