@@ -1,4 +1,4 @@
-const Post = require('../models/post');
+const Post = require('../models/posts');
 
 module.exports = {
     create,
@@ -9,7 +9,8 @@ async function create(req, res){
  
     try {
         const post = await Post.findById(req.params.id);
-        post.likes.push({username: req.user.username, userId: req.user._id}); //mutating a document
+        // post.likes.push({username: req.user.username, userId: req.user._id}); //mutating a document
+        post.likes.push({ownerId: "608b54365b49575fa180efa1", ownerName: 'Sully'}); //mutating a document
         await post.save()// save it
         res.status(201).json({data: 'like added'})
     } catch(err){

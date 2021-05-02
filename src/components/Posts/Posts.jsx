@@ -7,29 +7,31 @@ import * as likesApi from '../../utils/likesService';
 
 
 
-export default function Posts({ posts, setPosts, getPosts }) {
+export default function Posts({ posts, setPosts, getPosts, user }) {
 
   const { flag } = useParams()
 
-  async function addLike(postId, user){
+  async function addLike(postId) {
     try {
       const data = await likesApi.create(postId)
       console.log(data, ' response from addLike')
       getPosts() // get the updated posts
-    } catch(err){
+    } catch (err) {
       console.log(err)
     }
   }
 
-  async function removeLike(likeId, getPosts){
-    try{  
+  async function removeLike(likeId, getPosts) {
+    try {
       const data = await likesApi.removeLike(likeId);
       console.log(data, ' response from removeLike')
       getPosts()
-    } catch(err){
+    } catch (err) {
       console.log(err)
     }
   }
+
+
 
 
   async function handleSubmit(id) {
@@ -45,6 +47,9 @@ export default function Posts({ posts, setPosts, getPosts }) {
 
   const renderPosts = () => {
     return posts.map(post => {
+      const likedIndexNumber = post && post.likes.findIndex(like => like.username === user.username);
+      const likeHandler = likedIndexNumber > - 1 ? () => removeLike(post.likes[likedIndexNumber]._id) : () => addLike(post._id);
+      const likeColor = likedIndexNumber > -1 ? 'green' : 'grey';
       return <Card key={post._id}>
         <Card.Content extra textAlign={'left'}>
           {post.ownerName}
@@ -55,8 +60,8 @@ export default function Posts({ posts, setPosts, getPosts }) {
           </Card.Description>
         </Card.Content>
         <Card.Content extra textAlign={'left'}>
-        <Icon name={'handshake'} size='large'/>
-        {post.likes.length} Likes
+          <Icon name={'handshake'} size='large' onClick={() => likeHandler(post._id)} color={likeColor} />
+          {post.likes.length} Likes
       </Card.Content>
         <Form onSubmit={() => handleSubmit(post._id)}>
           <Button type='submit'>Delete?</Button>

@@ -10,8 +10,8 @@ const commentsSchema = mongoose.Schema({
 });
 
 const likesSchema = mongoose.Schema({
-  username: String,
-  userId: { type: mongoose.Schema.Types.ObjectId }
+  ownerName: String,
+  ownerId: { type: mongoose.Schema.Types.ObjectId }
 })
 
 const postSchema = new mongoose.Schema({

@@ -11,33 +11,23 @@ import NavBar from '../../components/NavBar/NavBar';
 import About from '../About/About';
 import Emergency from '../Emergency/Emergency';
 import SafeZone from '../SafeZone/SafeZone'
-// import Listing from '../Listing/Listing';
 
 function App(props) {
 
-  const [user, setUser] = useState(userService.getUser()) // getUser decodes our JWT token, into a javascript object
-  // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like 
-  // this  const token = createJWT(user); // where user was the document we created from mongo
+  const [user, setUser] = useState(userService.getUser()) 
 
   function handleSignUpOrLogin(){
-    setUser(userService.getUser()) // getting the user from localstorage decoding the jwt
+    setUser(userService.getUser())
   }
 
   function handleLogout(){
     userService.logout();
-    setUser({user: null})
-  }
-
-  function push (){
-    console.log('props', props)
+    setUser(null)
   }
 
   return (
     <div className="App">
-      {/* <div className="App">
-      <Listing />
-      </div> */}
-      <NavBar push={push}/>
+      <NavBar user={user} handleLogout={handleLogout}/>
       <Switch>
           <Route exact path="/login">
              <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
@@ -46,7 +36,7 @@ function App(props) {
              <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
           </Route>
           <Route exact path="/flagpage/:flag">
-             <FlagPage flag={{name:"QPOC"}}/>
+             <FlagPage user={user}/>
           </Route>
           <Route path="/emergency">
             <Emergency />

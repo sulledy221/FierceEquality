@@ -7,7 +7,7 @@ import { getAll } from '../../utils/posts-api'
 import Posts from '../../components/Posts/Posts'
 
 
-export default function FlagPage() {
+export default function FlagPage({user}) {
     const [posts, setPosts] = useState([]);
     const { flag } = useParams()
     async function getPosts(flagName) {
@@ -30,7 +30,7 @@ export default function FlagPage() {
             <h1>FLAG PAGE</h1>
             <img src={`/Assets/${flag}.jpeg`} alt="" />
             <FlagLinks flag={flag} />
-            <Posts posts={posts} setPosts={setPosts}/>
+            <Posts posts={posts} setPosts={setPosts} user={user}/>
             <PostCard post={{ user: {}, likes: [] }} addLike={create} />
 
         </div>
