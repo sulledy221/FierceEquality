@@ -6,6 +6,7 @@ const postsCtrl = require('../../controllers/posts');
 
 router.post('/:flag', postsCtrl.create)
 router.get('/:flag', postsCtrl.index)
+router.delete('/:flag/:id', postsCtrl.delete)
 
 
 /*---------- Protected Routes ----------*/

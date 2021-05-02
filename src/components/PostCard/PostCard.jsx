@@ -73,11 +73,7 @@ async function getPosts(){
         </Form>
       </Card.Description>
       </Card.Content>
-      <Card.Content extra textAlign={'right'}>
-        <Icon name={'heart'} size='large' onClick={clickHandler} color={likeColor} />
-        {post.likes.length} Likes
-          
-      </Card.Content>
+      
     </Card>
   );
 }

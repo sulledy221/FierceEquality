@@ -4,7 +4,7 @@ import { create } from '../../utils/likesService'
 import { useParams } from "react-router-dom";
 import FlagLinks from './FlagLinks'
 import { getAll } from '../../utils/posts-api'
-// import Posts from '../../components/Posts/Posts'
+import Posts from '../../components/Posts/Posts'
 
 
 export default function FlagPage() {
@@ -30,7 +30,7 @@ export default function FlagPage() {
             <h1>FLAG PAGE</h1>
             <img src={`/Assets/${flag}.jpeg`} alt="" />
             <FlagLinks flag={flag} />
-            {/* <Posts user={{}}/> */}
+            <Posts posts={posts} setPosts={setPosts}/>
             <PostCard post={{ user: {}, likes: [] }} addLike={create} />
 
         </div>

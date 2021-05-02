@@ -15,6 +15,15 @@ export function create(post){
   }).then(res => res.json())
 }
 
+export function removePost(flag, postID){
+  return fetch(`${BASE_URL}${flag}/${postID}`, {
+      method: 'DELETE',
+      // headers: {
+      //     'Authorization': 'Bearer ' + tokenService.getToken()
+      //   }
+  }).then(res => res.json())
+}
+
 export function getAll(flag) {
   return fetch(BASE_URL+flag, {
     headers: {
