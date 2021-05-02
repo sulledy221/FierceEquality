@@ -8,6 +8,8 @@ module.exports = {
 
 async function create(req, res) {
     try {
+        req.body.ownerName = req.user.ownerName 
+        req.body.ownerId = req.user._id
         const post = await Post.create(req.body)
         res.status(201).json({ post })
 

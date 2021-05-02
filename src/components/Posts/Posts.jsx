@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import AddPostForm from '../../components/AddPostForm/AddPostForm'
 import { Button, Card, Form, Icon } from 'semantic-ui-react'
 import { useParams } from 'react-router-dom'
 import * as postsApi from '../../utils/posts-api'
@@ -15,17 +14,17 @@ export default function Posts({ posts, setPosts, getPosts, user }) {
     try {
       const data = await likesApi.create(postId)
       console.log(data, ' response from addLike')
-      getPosts() // get the updated posts
+      postsApi.getAll(flag) // get the updated posts
     } catch (err) {
       console.log(err)
     }
   }
 
-  async function removeLike(likeId, getPosts) {
+  async function removeLike(likeId) {
     try {
       const data = await likesApi.removeLike(likeId);
       console.log(data, ' response from removeLike')
-      getPosts()
+      postsApi.getAll(flag)
     } catch (err) {
       console.log(err)
     }
@@ -47,7 +46,7 @@ export default function Posts({ posts, setPosts, getPosts, user }) {
 
   const renderPosts = () => {
     return posts.map(post => {
-      const likedIndexNumber = post && post.likes.findIndex(like => like.username === user.username);
+      const likedIndexNumber = post && post.likes.findIndex(like => like.ownerName === user.ownerName);
       const likeHandler = likedIndexNumber > - 1 ? () => removeLike(post.likes[likedIndexNumber]._id) : () => addLike(post._id);
       const likeColor = likedIndexNumber > -1 ? 'green' : 'grey';
       return <Card key={post._id}>

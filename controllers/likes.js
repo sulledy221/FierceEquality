@@ -9,8 +9,7 @@ async function create(req, res){
  
     try {
         const post = await Post.findById(req.params.id);
-        // post.likes.push({username: req.user.username, userId: req.user._id}); //mutating a document
-        post.likes.push({ownerId: "608b54365b49575fa180efa1", ownerName: 'Sully'}); //mutating a document
+        post.likes.push({ownerName: req.user.ownerName, ownerId: req.user._id}); //mutating a document
         await post.save()// save it
         res.status(201).json({data: 'like added'})
     } catch(err){
@@ -23,7 +22,7 @@ async function create(req, res){
 async function deleteLike(req, res){
     try {
         
-        const post = await Post.findOne({'likes._id': req.params.id, 'likes.username': req.user.username});
+        const post = await Post.findOne({'likes._id': req.params.id, 'likes.ownerName': req.user.ownerName});
         post.likes.remove(req.params.id) // mutating a document
         // req.params.id is the like id 
         await post.save() // after you mutate a document you must save

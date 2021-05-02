@@ -9,7 +9,7 @@ router.post('/:flag', postsCtrl.create)
 router.get('/:flag', postsCtrl.index)
 router.delete('/:flag/:id', postsCtrl.delete)
 router.post('/:id/likes', likesCtrl.create)
-router.delete('/:postId/likes/:likeId', likesCtrl.deleteLike)
+router.delete('/likes/:likeId', likesCtrl.deleteLike)
 
 
 /*---------- Protected Routes ----------*/

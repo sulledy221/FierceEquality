@@ -10,7 +10,8 @@ export function create(post){
     method: 'POST',
     body: JSON.stringify(post),
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
     }
   }).then(res => res.json())
 }
@@ -18,16 +19,17 @@ export function create(post){
 export function removePost(flag, postID){
   return fetch(`${BASE_URL}${flag}/${postID}`, {
       method: 'DELETE',
-      // headers: {
-      //     'Authorization': 'Bearer ' + tokenService.getToken()
-      //   }
+      headers: {
+          'Authorization': 'Bearer ' + tokenService.getToken()
+        }
   }).then(res => res.json())
 }
 
 export function getAll(flag) {
   return fetch(BASE_URL+flag, {
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
     }
   })
   .then(res => res.json());

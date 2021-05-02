@@ -27,7 +27,6 @@ export default function FlagPage({user}) {
     console.log('posts', posts)
     return (
         <div>
-            <h1>FLAG PAGE</h1>
             <img src={`/Assets/${flag}.jpeg`} alt="" />
             <FlagLinks flag={flag} />
             <Posts posts={posts} setPosts={setPosts} user={user}/>

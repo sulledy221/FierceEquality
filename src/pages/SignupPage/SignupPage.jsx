@@ -10,13 +10,13 @@ export default function SignUpPage(props){
   const [error, setError ] = useState('')
   const [selectedFile, setSelectedFile] = useState('')
   const [state, setState]  = useState({
-    username: '',
-    email: '',
-    password: '',
-    passwordConf: '',
-    identity: '',
-    pronouns: '',
-    bio: '',
+    username: 'sully',
+    email: '14sully@gmail.com',
+    password: 'sully ',
+    passwordConf: 'sully',
+    identity: 'trans',
+    pronouns: 'he him',
+    bio: 'hello',
   });
 
   const history = useHistory()

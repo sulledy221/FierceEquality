@@ -33,7 +33,8 @@ async function signup(req, res) {
   const user = new User(req.body);
   try {
     await user.save();
-    const token = createJWT(user); // user is the payload so this is the object in our jwt
+    const token = createJWT(user); 
+    console.log('token?', token)
     res.json({ token });
   } catch (err) {
     console.log("sign up error", err)
