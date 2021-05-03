@@ -5,14 +5,12 @@
 <h3>Within the app you can navigate through the different kinds of identities and find resources for those certain Identities. I created it to help out the community through these trying times. </h3>
 
 
-
-
-<img src="/Assets/readme1.jpeg"></img>
-<img src="/Assets/readme2.jpeg"></img>
-<img src="/Assets/readme3.jpeg"></img>
-<img src="/Assets/readme4.jpeg"></img>
-
-
+<p align="center">
+  <img src="/Assets/readme1.jpeg"/>
+  <img src="/Assets/readme2.jpeg"/>
+  <img src="/Assets/readme3.jpeg"/>
+  <img src="/Assets/readme4.jpeg"/>
+</p>
 
 
 Technologies used:
