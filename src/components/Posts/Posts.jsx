@@ -14,7 +14,7 @@ export default function Posts({ posts, setPosts, getPosts, user }) {
     try {
       const data = await likesApi.create(postId)
       console.log(data, ' response from addLike')
-      postsApi.getAll(flag) // get the updated posts
+      getPosts(flag)
     } catch (err) {
       console.log(err)
     }
@@ -24,7 +24,7 @@ export default function Posts({ posts, setPosts, getPosts, user }) {
     try {
       const data = await likesApi.removeLike(likeId);
       console.log(data, ' response from removeLike')
-      postsApi.getAll(flag)
+      getPosts(flag)
     } catch (err) {
       console.log(err)
     }

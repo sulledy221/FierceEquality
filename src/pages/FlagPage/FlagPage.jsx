@@ -32,7 +32,7 @@ export default function FlagPage({user}) {
             <p>{flagData.description}</p>
             <img src={`/Assets/${flag}.jpeg`} alt="" />
             <FlagLinks flag={flag} />
-            <Posts posts={posts} setPosts={setPosts} user={user}/>
+            <Posts posts={posts} setPosts={setPosts} user={user} getPosts={getPosts}/>
             <PostCard post={{ user: {}, likes: [] }} addLike={create} />
 
         </div>

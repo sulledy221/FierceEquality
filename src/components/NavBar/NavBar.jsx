@@ -19,9 +19,9 @@ export default class NavBar extends Component {
       const {user, handleLogout} = this.props
       console.log('user -->', user)
       return (
-        <nav>
+        <nav className="bar">
+          <Dropdown placeholder='Here are the identities' selection options={flagLinks} className='dd'/>
         <ul className="ul">
-        <li><Dropdown placeholder='Identity' selection options={flagLinks} /></li>
           <li><Link to="/">Welcome to Fierce Equality</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/safezone">Safe Zone</Link></li>
