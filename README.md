@@ -5,6 +5,8 @@
 
 <h3>Within the app you can navigate through the different kinds of identities and find resources for those certain Identities. I created it to help out the community through these trying times. </h3>
 
+
+https://fierceequality.herokuapp.com/signup
 https://lucid.app/lucidchart/f907e022-8b42-454f-9cdf-77a74eb2d0e5/edit?page=0_0#
 https://trello.com/b/8JT9UAcu/fierce-equality
 
