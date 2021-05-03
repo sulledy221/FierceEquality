@@ -1,1 +1,1 @@
-Social app for the LGBTQIA and QPOC community
+<h1> Fierce EEquality </h1>

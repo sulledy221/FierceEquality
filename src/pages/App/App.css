@@ -1,6 +1,9 @@
 body {
   font-size: 25px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(126, 126, 126);
+  text-shadow: black;
+  color: #111111;
 }
 
 
@@ -50,7 +53,7 @@ ul {
   overflow: visible;
   background-color: #333333;
   display: inline-block;
-  width: 1200px;
+  width: 100%;
 }
 
 li {
@@ -67,4 +70,12 @@ li a {
 
 li a:hover {
   background-color: #111111;
+}
+
+a {
+  color: #111111;
+}
+
+a:hover {
+  color: white;
 }
