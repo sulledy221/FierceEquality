@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
@@ -14,54 +14,54 @@ import SafeZone from '../SafeZone/SafeZone'
 
 function App(props) {
 
-  const [user, setUser] = useState(userService.getUser())
+  const [user, setUser] = useState(userService.getUser()) 
 
-  function handleSignUpOrLogin() {
+  function handleSignUpOrLogin(){
     setUser(userService.getUser())
   }
 
-  function handleLogout() {
+  function handleLogout(){
     userService.logout();
     setUser(null)
   }
 
   return (
     <div className="App">
-      <NavBar user={user} handleLogout={handleLogout} />
+      <NavBar user={user} handleLogout={handleLogout}/>
       <Switch>
-        <Route exact path="/login">
-          <LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />
-        </Route>
-        <Route exact path="/signup">
-          <SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />
-        </Route>
-        <Route exact path="/flagpage/:flag">
-          <FlagPage user={user} />
-        </Route>
-        <Route path="/emergency">
-          <Emergency />
-        </Route>
-        <Route path="/safezone">
-          <SafeZone />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/:ownerName">
-          <ProfilePage />
-        </Route>
-        {userService.getUser() ?
-          <>
-            <Switch>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
+          <Route exact path="/login">
+             <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
+          </Route>
+          <Route exact path="/signup">
+             <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
+          </Route>
+          <Route exact path="/flagpage/:flag">
+             <FlagPage user={user}/>
+          </Route>
+          <Route path="/emergency">
+            <Emergency />
+          </Route>
+          <Route path="/safezone">
+            <SafeZone />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/:username">
+            <ProfilePage />
+          </Route>
+          {userService.getUser() ? 
+            <> 
+             <Switch>
+                <Route exact path="/">
+                    <HomePage />
+                </Route>
             </Switch>
-          </>
-          :
-          <Redirect to='/login' />
-        }
-
+            </>
+            :
+            <Redirect to='/login'/>
+          }
+  
       </Switch>
     </div>
   );

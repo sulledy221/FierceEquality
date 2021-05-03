@@ -50,8 +50,8 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
-function getProfile(username){
-  return fetch(BASE_URL + username, {
+function getProfile(ownerName){
+  return fetch(BASE_URL + ownerName, {
     headers: {
       'Authorization': 'Bearer ' + tokenService.getToken()
     }

@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 
-const commentsSchema = mongoose.Schema({
-  username: String,
-  text: String,
-  userId: { type: mongoose.Schema.Types.ObjectId }
-}, {
-  timestamps: true
-});
+// const commentsSchema = mongoose.Schema({
+//   username: String,
+//   text: String,
+//   userId: { type: mongoose.Schema.Types.ObjectId }
+// }, {
+//   timestamps: true
+// });
 
 const likesSchema = mongoose.Schema({
   ownerName: String,
@@ -19,7 +19,7 @@ const postSchema = new mongoose.Schema({
   ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   text: String,
   flag: String,
-  comments: [commentsSchema],
+  // comments: [commentsSchema],
   likes: [likesSchema]
 }, {
   timestamps: true
