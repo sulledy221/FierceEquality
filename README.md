@@ -1,3 +1,4 @@
+
 <h1> Fierce Equality </h1>
 
 <h2>I've created an app for the LGBTQ+ community</h2>
@@ -5,12 +6,10 @@
 <h3>Within the app you can navigate through the different kinds of identities and find resources for those certain Identities. I created it to help out the community through these trying times. </h3>
 
 
-<p align="center">
-  <img src="/Assets/readme1.jpeg"/>
-  <img src="/Assets/readme2.jpeg"/>
-  <img src="/Assets/readme3.jpeg"/>
-  <img src="/Assets/readme4.jpeg"/>
-</p>
+![readme4](https://user-images.githubusercontent.com/77522583/116849381-81c32180-aba3-11eb-9615-a4cf247c9a54.jpeg)
+![readme3](https://user-images.githubusercontent.com/77522583/116849396-8ab3f300-aba3-11eb-8c5d-fdbb831d9737.jpeg)
+![readme2](https://user-images.githubusercontent.com/77522583/116849401-8daee380-aba3-11eb-9c20-b88235e0be95.jpeg)
+![readme1](https://user-images.githubusercontent.com/77522583/116849449-9dc6c300-aba3-11eb-84fd-82127946a746.jpeg)
 
 
 Technologies used:
