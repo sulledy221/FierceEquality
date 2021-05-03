@@ -38,7 +38,7 @@ export default function Posts({ posts, setPosts, getPosts, user }) {
 
       const data = await postsApi.removePost(flag, id)
       console.log('data -->', data)
-      setPosts(data)
+      getPosts(flag)
     } catch (err) {
       console.log(err)
     }
@@ -49,7 +49,8 @@ export default function Posts({ posts, setPosts, getPosts, user }) {
       const likedIndexNumber = post && post.likes.findIndex(like => like.ownerName === user.ownerName);
       const likeHandler = likedIndexNumber > - 1 ? () => removeLike(post.likes[likedIndexNumber]._id) : () => addLike(post._id);
       const likeColor = likedIndexNumber > -1 ? 'green' : 'grey';
-      return <Card key={post._id}>
+      return <div className="card"><Card key={post._id} fluid>
+
         <Card.Content extra textAlign={'left'}>
           {post.ownerName}
         </Card.Content>
@@ -66,6 +67,7 @@ export default function Posts({ posts, setPosts, getPosts, user }) {
           <Button type='submit'>Delete?</Button>
         </Form>
       </Card>
+      </div>
     })
   }
 

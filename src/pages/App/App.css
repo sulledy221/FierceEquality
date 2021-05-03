@@ -1,11 +1,10 @@
 body {
   font-size: 30px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: rgb(252, 251, 251);
   text-shadow: black;
   color: #111111;
 }
-
 
 .App {
   text-align: left;
@@ -45,6 +44,10 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.bar {
+  display: flex;
 }
 
 ul {
@@ -91,6 +94,29 @@ a:hover {
   color: red;
 }
 
-.bar{
-  display: flex;
+.fpages {
+  width: 500px;
+}
+
+.page {}
+
+.flag-link {
+  text-decoration: underline;
+}
+
+.card {
+  width: 500px;
+  background-color: #000000;
+  margin-bottom: 25px;
+}
+
+.about {
+  border: black 3px;
+  padding: 15px;
+  width: 900px;
+  border: black 3px solid;
+}
+
+.img {
+  width: 300px;
 }

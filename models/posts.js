@@ -15,16 +15,16 @@ const likesSchema = mongoose.Schema({
 })
 
 const postSchema = new mongoose.Schema({
-    ownerName: String,
-    ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    text: String,
-    flag: String,
-    comments: [commentsSchema],
-    likes: [likesSchema]
-  }, {
-    timestamps: true
-  });
- 
+  ownerName: String,
+  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  text: String,
+  flag: String,
+  comments: [commentsSchema],
+  likes: [likesSchema]
+}, {
+  timestamps: true
+});
+
 module.exports.postSchema = postSchema
 
 module.exports = mongoose.model('Post', postSchema);

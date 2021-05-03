@@ -1,9 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Header, Segment, Icon } from 'semantic-ui-react';
 
 
-export default function PageHeader({user, handleLogout}){
+export default function PageHeader({ user, handleLogout }) {
     return (
 
         <Segment clearing>
@@ -12,7 +12,7 @@ export default function PageHeader({user, handleLogout}){
                 <Link to='' onClick={handleLogout}>Logout</Link>
             </Header>
             <Header as='h2' floated='left'>
-                <Link to={`/${user.username}`}></Link>          
+                <Link to={`/${user.ownerName}`}></Link>
             </Header>
         </Segment>
     )

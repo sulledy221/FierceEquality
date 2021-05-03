@@ -5,12 +5,12 @@ import userService from '../../utils/userService';
 import { useHistory } from 'react-router-dom';
 
 
-export default function SignUpPage(props){
+export default function SignUpPage(props) {
   const [invalidForm, setValidForm] = useState(false)
-  const [error, setError ] = useState('')
+  const [error, setError] = useState('')
   const [selectedFile, setSelectedFile] = useState('')
-  const [state, setState]  = useState({
-    username: '',
+  const [state, setState] = useState({
+    ownerName: '',
     email: '',
     password: '',
     passwordConf: '',
@@ -21,14 +21,14 @@ export default function SignUpPage(props){
 
   const history = useHistory()
 
-  function handleChange(e){
+  function handleChange(e) {
     setState({
       ...state,
       [e.target.name]: e.target.value
     })
   }
 
-  async function handleSubmit(e){
+  async function handleSubmit(e) {
     e.preventDefault();
 
 
@@ -36,96 +36,96 @@ export default function SignUpPage(props){
     formData.append('photo', selectedFile);
 
 
-    for (let key in state){
+    for (let key in state) {
       formData.append(key, state[key])
     }
     try {
       const success = await userService.signup(state);
-      if (success){
+      if (success) {
         history.push("/")
       }
-    } catch(err){
+    } catch (err) {
       console.log(err.message)
       setError(err.message)
     }
 
   }
 
-  function handleFileInput(e){
+  function handleFileInput(e) {
     setSelectedFile(e.target.files[0])
   }
- 
-    return (
-        <>
-        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-          <Grid.Column style={{ maxWidth: 450 }}>
-              <Header as='h2' color='teal' textAlign='center'>
-                <Image src='/Assets/progress.jpeg' /> Sign Up    
-              </Header>            
-                <Form autoComplete="off"  onSubmit={handleSubmit}>
-                <Segment stacked>               
-                    <Form.Input                    
-                      name="username"
-                      placeholder="Username"
-                      value={state.username}
-                      onChange={handleChange}
-                      required
-                    />
-                    <Form.Input
-                      type="email"                  
-                      name="email"
-                      placeholder="Email"
-                      value={ state.email}
-                      onChange={handleChange}
-                      required
-                    />
-                    <Form.Input             
-                      name="password"
-                      type="password"
-                      placeholder="Password"
-                      value={ state.password}
-                      onChange={handleChange}
-                      required
-                    />
-                    <Form.Input     
-                      name="passwordConf"
-                      type="password"
-                      placeholder="Confirm Password"
-                      value={ state.passwordConf}
-                      onChange={handleChange}
-                      required
-                    />
-                    <Form.Input     
-                      name="identity"
-                      type="text"
-                      placeholder="What do you identify as?"
-                      value={ state.identity}
-                      onChange={handleChange}
-                      required
-                    />
-                    <Form.Input     
-                      name="pronouns"
-                      type="text"
-                      placeholder="What are your preferred pronouns?"
-                      value={ state.pronouns}
-                      onChange={handleChange}
-                      required
-                    />
-                    <Form.TextArea label='Bio' placeholder='Tell us more about yourself and what brought you here!' name="bio" value={state.bio} onChange={handleChange} maxLen={"10"}/>
-                    <Button
-                      type="submit"
-                      className="btn"
-                      disabled={invalidForm}
-                    >
-                    Signup
+
+  return (
+    <>
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as='h2' color='teal' textAlign='center'>
+            <Image src='/Assets/progress.jpeg' /> Sign Up
+              </Header>
+          <Form autoComplete="off" onSubmit={handleSubmit}>
+            <Segment stacked>
+              <Form.Input
+                name="ownerName"
+                placeholder="Username"
+                value={state.ownerName}
+                onChange={handleChange}
+                required
+              />
+              <Form.Input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={state.email}
+                onChange={handleChange}
+                required
+              />
+              <Form.Input
+                name="password"
+                type="password"
+                placeholder="Password"
+                value={state.password}
+                onChange={handleChange}
+                required
+              />
+              <Form.Input
+                name="passwordConf"
+                type="password"
+                placeholder="Confirm Password"
+                value={state.passwordConf}
+                onChange={handleChange}
+                required
+              />
+              <Form.Input
+                name="identity"
+                type="text"
+                placeholder="What do you identify as?"
+                value={state.identity}
+                onChange={handleChange}
+                required
+              />
+              <Form.Input
+                name="pronouns"
+                type="text"
+                placeholder="What are your preferred pronouns?"
+                value={state.pronouns}
+                onChange={handleChange}
+                required
+              />
+              <Form.TextArea label='Bio' placeholder='Tell us more about yourself and what brought you here!' name="bio" value={state.bio} onChange={handleChange} maxLen={"10"} />
+              <Button
+                type="submit"
+                className="btn"
+                disabled={invalidForm}
+              >
+                Signup
                   </Button>
-                  </Segment>
-                  {error ? <ErrorMessage error={error} /> : null}
-                </Form>
-               
-            </Grid.Column>
-          </Grid>
-        </>
-      );   
-    
+            </Segment>
+            {error ? <ErrorMessage error={error} /> : null}
+          </Form>
+
+        </Grid.Column>
+      </Grid>
+    </>
+  );
+
 }

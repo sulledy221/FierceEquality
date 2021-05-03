@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Input, Menu, Dropdown, Icon } from 'semantic-ui-react'
-import {flagLinks} from './config'
+import { flagLinks } from './config'
 import './NavBar.css';
 
 
@@ -15,12 +15,12 @@ export default class NavBar extends Component {
   }
 
   render() {
-      const { activeItem } = this.state
-      const {user, handleLogout} = this.props
-      console.log('user -->', user)
-      return (
-        <nav className="bar">
-          <Dropdown placeholder='Here are the identities' selection options={flagLinks} className='dd'/>
+    const { activeItem } = this.state
+    const { user, handleLogout } = this.props
+    console.log('user -->', user)
+    return (
+      <nav className="bar">
+        <Dropdown placeholder='Here are the identities' selection options={flagLinks} className='dd' />
         <ul className="ul">
           <li><Link to="/">Welcome to Fierce Equality</Link></li>
           <li><Link to="/about">About</Link></li>
@@ -29,12 +29,12 @@ export default class NavBar extends Component {
           {
             user ? <li><Link to="/" onClick={handleLogout} >Logout?</Link></li> : (
               <>
-              <li><Link to="/signup">Sign Up!</Link></li>
-              <li><Link to="/login">Login!</Link></li>
+                <li><Link to="/signup">Sign Up!</Link></li>
+                <li><Link to="/login">Login!</Link></li>
               </>
             )
           }
-          
+
         </ul>
       </nav>
     )
