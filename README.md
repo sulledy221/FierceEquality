@@ -5,7 +5,8 @@
 
 <h3>Within the app you can navigate through the different kinds of identities and find resources for those certain Identities. I created it to help out the community through these trying times. </h3>
 
-
+https://lucid.app/lucidchart/f907e022-8b42-454f-9cdf-77a74eb2d0e5/edit?page=0_0#
+https://trello.com/b/8JT9UAcu/fierce-equality
 
 ![readme4](https://user-images.githubusercontent.com/77522583/116849381-81c32180-aba3-11eb-9615-a4cf247c9a54.jpeg)
 ![readme3](https://user-images.githubusercontent.com/77522583/116849396-8ab3f300-aba3-11eb-8c5d-fdbb831d9737.jpeg)
@@ -31,5 +32,4 @@ Icebox features I'd like to add:
 <li>Real time communication</li>
 <li>Searching feature</li>
 <li>Implement post filtering</li>
-https://lucid.app/lucidchart/f907e022-8b42-454f-9cdf-77a74eb2d0e5/edit?page=0_0#
-https://trello.com/b/8JT9UAcu/fierce-equality
+
